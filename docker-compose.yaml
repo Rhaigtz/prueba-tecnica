@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  backend: 
+    container_name: ventipay-backend
+    build: 
+      context: ./backend
+      dockerfile: ../images/backend.dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    env_file: 
+      - ./env/backend.env
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: frontend.dockerfile
+
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+
+  mysql:
+    image: mysql:5.7
+    restart: always
+    env_file: 
+      - ./env/mysql.env
+    ports:
+      - "3306:3306"
