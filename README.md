@@ -7,7 +7,7 @@ https://www.docker.com/get-started/
 Para ejecutar el frontend, el backend, y la base de datos en conjunto, debemos pararnos en la base del proyecto y ejecutar el siguiente comando
 
 ```bash
-  docker compose run
+  docker compose up
 ```
 
 Este comando levantara los 3 servicios, dejándolos corriendo
